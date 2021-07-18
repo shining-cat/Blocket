@@ -22,7 +22,7 @@ import fr.shining_cat.blocketgithubapp.BuildConfig
 import fr.shining_cat.blocketgithubapp.commons.CommonConstants
 import fr.shining_cat.blocketgithubapp.commons.CommonConstants.Companion.API_BASE_URL
 import fr.shining_cat.blocketgithubapp.commons.CommonConstants.Companion.CONNECT_TIMEOUT_SECONDS
-import fr.shining_cat.blocketgithubapp.commons.CommonConstants.Companion.GITHUB_PERSONAL_TOKEN
+import fr.shining_cat.blocketgithubapp.commons.GithubToken.Companion.GITHUB_PERSONAL_TOKEN
 import fr.shining_cat.blocketgithubapp.commons.CommonConstants.Companion.READ_TIMEOUT_SECONDS
 import fr.shining_cat.blocketgithubapp.commons.Logger
 import fr.shining_cat.blocketgithubapp.domain.FetchGithubReposUseCase
