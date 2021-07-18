@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LiveDataExtensions.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">fr.shining_cat.blocketgithubapp.testutils.extensions</a> &gt; <span class="el_source">LiveDataExtensions.kt</span></div><h1>LiveDataExtensions.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2021. Shining-cat - Shiva Bernhard
+ * This file is part of Everyday.
+ *
+ *     Everyday is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, version 3 of the License.
+ *
+ *     Everyday is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Everyday.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ */
+
+package fr.shining_cat.blocketgithubapp.testutils.extensions
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+
+/**
+ * Represents a list of capture values from a LiveData.
+ */
+<span class="nc" id="L26">class LiveDataValueCapture&lt;T&gt; {</span>
+
+<span class="nc" id="L28">    val lock = Any()</span>
+
+<span class="nc" id="L30">    private val _values = mutableListOf&lt;T?&gt;()</span>
+    val values: List&lt;T?&gt;
+<span class="nc" id="L32">        get() = synchronized(lock) {</span>
+<span class="nc" id="L33">            _values.toList() // copy to avoid returning reference to mutable list</span>
+<span class="nc" id="L34">        }</span>
+
+<span class="nc" id="L36">    fun addValue(value: T?) = synchronized(lock) {</span>
+<span class="nc" id="L37">        _values += value</span>
+<span class="nc" id="L38">    }</span>
+}
+
+/**
+ * Extension function to capture all values that are emitted to a LiveData&lt;T&gt; during the execution of
+ * `captureBlock`.
+ *
+ * @param captureBlock a lambda that will
+ */
+inline fun &lt;T&gt; LiveData&lt;T&gt;.captureValues(block: LiveDataValueCapture&lt;T&gt;.() -&gt; Unit) {
+<span class="nc" id="L48">    val capture = LiveDataValueCapture&lt;T&gt;()</span>
+<span class="nc" id="L49">    val observer = Observer&lt;T&gt; {</span>
+<span class="nc" id="L50">        capture.addValue(it)</span>
+<span class="nc" id="L51">    }</span>
+<span class="nc" id="L52">    observeForever(observer)</span>
+<span class="nc" id="L53">    try {</span>
+<span class="nc" id="L54">        capture.block()</span>
+    }
+    finally {
+<span class="nc" id="L57">        removeObserver(observer)</span>
+<span class="nc" id="L58">    }</span>
+<span class="nc" id="L59">}</span>
+
+/**
+ * Get the current value from a LiveData without needing to register an observer.
+ */
+fun &lt;T&gt; LiveData&lt;T&gt;.getValueForTest(): T? {
+<span class="fc" id="L65">    var value: T? = null</span>
+<span class="fc" id="L66">    var observer = Observer&lt;T&gt; {</span>
+        value = it
+    }
+<span class="fc" id="L69">    observeForever(observer)</span>
+<span class="fc" id="L70">    removeObserver(observer)</span>
+<span class="fc" id="L71">    return value</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

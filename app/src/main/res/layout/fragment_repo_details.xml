@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.views.repodetail.RepoDetailsFragment">
+
+    <View
+        android:id="@+id/top_bar_background"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/top_bar_height"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/back_button_left_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_left_arrow_thin"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/top_bar_background"
+        app:layout_constraintTop_toTopOf="@id/top_bar_background" />
+
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="@dimen/single_margin"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/tilte_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Repository name" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar_background"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/double_margin"
+            android:paddingBottom="@dimen/double_margin">
+
+            <TextView
+                android:id="@+id/description_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/description_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/repo_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description_label"
+                tools:text="Repository description" />
+
+            <TextView
+                android:id="@+id/language_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/language_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/repo_description" />
+
+            <TextView
+                android:id="@+id/repo_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/language_label"
+                tools:text="Repository language" />
+
+            <TextView
+                android:id="@+id/owner_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/owner_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/repo_language" />
+
+            <TextView
+                android:id="@+id/owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/owner_label"
+                tools:text="owner" />
+
+            <TextView
+                android:id="@+id/isForked_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/is_this_a_fork_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/owner" />
+
+            <TextView
+                android:id="@+id/isForked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/isForked_label"
+                tools:text="isForked" />
+
+            <TextView
+                android:id="@+id/url_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/repository_url_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/isForked"
+                tools:text="url" />
+
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/url_label"
+                tools:text="url" />
+
+
+            <TextView
+                android:id="@+id/createdAt_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/creation_date_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/url"
+                tools:text="createdAt" />
+
+
+            <TextView
+                android:id="@+id/createdAt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/createdAt_label"
+                tools:text="createdAt" />
+
+
+            <TextView
+                android:id="@+id/updatedAt_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/last_update_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/createdAt"
+                tools:text="updatedAt" />
+
+
+            <TextView
+                android:id="@+id/updatedAt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/updatedAt_label"
+                tools:text="updatedAt" />
+
+
+            <TextView
+                android:id="@+id/gitUrl_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/git_url_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/updatedAt"
+                tools:text="gitUrl" />
+
+            <TextView
+                android:id="@+id/gitUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gitUrl_label"
+                tools:text="gitUrl" />
+
+
+            <TextView
+                android:id="@+id/sshUrl_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/ssh_url_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gitUrl"
+                tools:text="sshUrl" />
+
+            <TextView
+                android:id="@+id/sshUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sshUrl_label"
+                tools:text="sshUrl" />
+
+
+            <TextView
+                android:id="@+id/stargazersCount_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/stargazers_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sshUrl"
+                tools:text="stargazersCounte" />
+
+
+            <TextView
+                android:id="@+id/stargazersCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stargazersCount_label"
+                tools:text="stargazersCounte" />
+
+
+            <TextView
+                android:id="@+id/watchersCount_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/watchers_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stargazersCount"
+                tools:text="watchersCount" />
+
+
+            <TextView
+                android:id="@+id/watchersCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/watchersCount_label"
+                tools:text="watchersCount" />
+
+
+            <TextView
+                android:id="@+id/openIssuesCount_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                android:text="@string/open_issues_label"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/watchersCount"
+                tools:text="openIssuesCount" />
+
+            <TextView
+                android:id="@+id/openIssuesCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/single_margin"
+                android:layout_marginEnd="@dimen/single_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/openIssuesCount_label"
+                tools:text="openIssuesCount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

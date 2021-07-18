@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RepoConverter.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">fr.shining_cat.blocketgithubapp.repositories.converters</a> &gt; <span class="el_source">RepoConverter.kt</span></div><h1>RepoConverter.kt</h1><pre class="source lang-java linenums">package fr.shining_cat.blocketgithubapp.repositories.converters
+
+import fr.shining_cat.blocketgithubapp.models.Repo
+import fr.shining_cat.blocketgithubapp.remote.api.dto.RepoDto
+
+<span class="fc" id="L6">class RepoConverter(</span>
+    private val ownerConverter: OwnerConverter
+) {
+
+    fun convertDtoToModel(repos: List&lt;RepoDto&gt;) : List&lt;Repo&gt; {
+<span class="fc" id="L11">        return repos.map {</span>
+<span class="fc" id="L12">            Repo(</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">                id = it.id?:-1,</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">                nodeId = it.nodeId?:&quot;&quot;,</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">                name = it.name?:&quot;&quot;,</span>
+<span class="fc" id="L16">                owner = ownerConverter.convertDtoToModel(it.owner),</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">                description = it.description?:&quot;&quot;,</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">                isForked = it.isForked?:false,</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                url = it.url?:&quot;&quot;,</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">                createdAt = it.createdAt?:&quot;&quot;,</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">                updatedAt = it.updatedAt?:&quot;&quot;,</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">                gitUrl = it.gitUrl?:&quot;&quot;,</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">                sshUrl = it.sshUrl?:&quot;&quot;,</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">                stargazersCount = it.stargazersCount?:-1,</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                watchersCount = it.watchersCount?:-1,</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                language = it.language?:&quot;&quot;,</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">                openIssuesCount = it.openIssuesCount?:-1</span>
+            )
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

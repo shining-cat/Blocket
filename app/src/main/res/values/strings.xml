@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Blocket Github app</string>
+    <string name="generic_EMPTY_LIST">We found nothing with this github token</string>
+    <string name="generic_ERROR">Error</string>
+    <string name="generic_LOADING">Loading…</string>
+    <string name="repo_detail_error">An error occurred while retrieving this github repository</string>
+    <string name="description_label">Description</string>
+    <string name="language_label">Language</string>
+    <string name="owner_label">Owner</string>
+    <string name="is_this_a_fork_label">Is this a fork?</string>
+    <string name="repository_url_label">Repository url</string>
+    <string name="creation_date_label">Creation date</string>
+    <string name="last_update_label">Last update</string>
+    <string name="git_url_label">Git url</string>
+    <string name="ssh_url_label">SSH url</string>
+    <string name="stargazers_label">Stargazers</string>
+    <string name="watchers_label">Watchers</string>
+    <string name="open_issues_label">Open issues</string>
+</resources>

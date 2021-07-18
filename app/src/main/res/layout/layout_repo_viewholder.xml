@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurface"
+    app:strokeColor="?attr/colorPrimary"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/repo_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/double_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:textSize="@dimen/tilte_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/repo_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Repository name" />
+
+        <TextView
+            android:id="@+id/repo_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:layout_marginBottom="@dimen/half_margin"
+            app:layout_constraintBottom_toTopOf="@id/repo_language"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repo_name"
+            tools:text="Repository description" />
+
+        <TextView
+            android:id="@+id/repo_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/single_margin"
+            android:layout_marginEnd="@dimen/single_margin"
+            android:layout_marginBottom="@dimen/double_margin"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repo_description"
+            tools:text="Repository language" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

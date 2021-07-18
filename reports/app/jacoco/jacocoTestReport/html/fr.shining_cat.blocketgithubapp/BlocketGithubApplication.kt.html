@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BlocketGithubApplication.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">fr.shining_cat.blocketgithubapp</a> &gt; <span class="el_source">BlocketGithubApplication.kt</span></div><h1>BlocketGithubApplication.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2021. Shining-cat - Shiva Bernhard
+ * This file is part of Everyday.
+ *
+ *     Everyday is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, version 3 of the License.
+ *
+ *     Everyday is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Everyday.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ */
+
+package fr.shining_cat.blocketgithubapp
+
+import android.app.Application
+import fr.shining_cat.blocketgithubapp.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
+
+
+<span class="nc" id="L26">class BlocketGithubApplication : Application() {</span>
+
+    override fun onCreate() {
+<span class="nc" id="L29">        super.onCreate()</span>
+<span class="nc" id="L30">        configureDi()</span>
+<span class="nc" id="L31">    }</span>
+
+    private fun configureDi() {
+<span class="nc" id="L34">        startKoin {</span>
+
+<span class="nc" id="L36">            androidContext(this@BlocketGithubApplication)</span>
+
+<span class="nc" id="L38">            modules(</span>
+<span class="nc" id="L39">                listOf(</span>
+<span class="nc" id="L40">                    appModule</span>
+                )
+            )
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
