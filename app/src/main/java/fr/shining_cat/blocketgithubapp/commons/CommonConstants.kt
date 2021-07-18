@@ -16,7 +16,7 @@ class CommonConstants {
         const val READ_TIMEOUT_SECONDS = 30L
         const val CACHE_SIZE = (5 * 1024 * 1024).toLong() // 5MB
 
-        const val GITHUB_PERSONAL_TOKEN = "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"
+        const val GITHUB_PERSONAL_TOKEN = "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"
 
     }
 }
